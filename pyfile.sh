@@ -1,15 +1,17 @@
 #!/bin/bash
 
-declare python_body="#!/usr/bin/python2.6\n\
-# Copyright (c) 2011, "${2}".\n\
-\"\"\"Enter brief description here.\n\
-\n\
-Enter more details here about this file.\n\
-\"\"\"\n\
-\n\
-__author__ = '${3}'\n\
-\n
+python_body=$(cat <<EOF
+#!/usr/bin/python2.6
+# Copyright (c) 2011, ${2}.
+"""Enter brief description here.
+
+Enter more details here about this file.
+"""
+
+__author__ = '${3}'
+
 if __name__ == '__main__':
-"
+EOF
+)
 
 echo -e "$python_body" > "${1}"
